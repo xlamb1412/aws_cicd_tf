@@ -1,4 +1,4 @@
-variable dockerhub_credentials{
+variable dockerhub_credentials {
     type = string
 }
 
