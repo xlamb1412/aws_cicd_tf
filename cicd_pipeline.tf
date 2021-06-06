@@ -1,6 +1,6 @@
 resource "aws_codestarconnections_connection" "github_repo" {
   name          = "xlamb1412"
-  provider_type = "Github"
+  provider_type = "GitHub"
 }
 
 resource "aws_codebuild_project" "tf-plan" {
