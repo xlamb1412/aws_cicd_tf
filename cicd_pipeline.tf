@@ -1,3 +1,8 @@
+resource "aws_codestarconnections_connection" "github_repo" {
+  name          = "xlamb1412"
+  provider_type = "Github"
+}
+
 resource "aws_codebuild_project" "tf-plan" {
   name          = "tf-cicd-plan"
   description   = "Plan stage for terraform"
@@ -71,7 +76,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
             configuration = {
                 FullRepositoryId = "xlamb1412/aws_cicd_tf"
                 BranchName   = "master"
-                ConnectionArn = var.codestar_connector_credentials
+                ConnectionArn = aws_codestarconnections_connection.github_repo.arn
                 OutputArtifactFormat = "CODE_ZIP"
             }
         }
